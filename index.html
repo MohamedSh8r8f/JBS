@@ -17,17 +17,20 @@
 
 <body>
 <header>
-  <a href="/"><h2>Jobex</h2></a>
-  <nav>
-    <ul>
+
+<nav class="navbar">
+    <a href="#" class="logo">Jobex</a>
+    <div class="menu-icon" id="menu-icon">
+        &#9776; </div>
+    <ul class="nav-links" id="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#app-section">App</a></li>
       <li><a href="#Partners">Partners</a></li>
       <li><a href="#about">About Us</a></li>
       <li><a href="#Services">Services</a></li>
-
     </ul>
-  </nav>
+</nav>
+
 </header>
 <!--  -->
 <section>
@@ -197,6 +200,19 @@
   toTopBtn.onclick = function() {
     window.scrollTo({top: 0, behavior: 'smooth'});
   };
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.getElementById('menu-icon');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuIcon && navLinks) {
+        menuIcon.addEventListener('click', function() {
+            navLinks.classList.toggle('active'); 
+        });
+    }
+});  
+
 </script>
 
 </body>
