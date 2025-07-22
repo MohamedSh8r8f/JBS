@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Define color variables for easy customization */
 :root {
   --primary-color: #F0F3FA;
   --secondary-color: #D5DEEF;
@@ -20,67 +19,85 @@
 
 body {
   font-family: "Poppins", serif;
+  padding-top: 60px;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 150px;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   background-color: var(--hover-background);
-  color: var(--hover-color);
-  box-shadow: 0 2px 12px rgba(57, 88, 134, 0.08);
+    padding: 10px 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px;
 }
 
-header a {
-  color: var(--hover-color);
-  text-decoration: none;
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-ul {
-  list-style: none;
+.nav-links {
+    list-style: none;
+    display: flex;
 }
 
-a {
-  text-decoration: none;
+.nav-links li {
+    margin-left: 20px;
 }
 
-h1,
-h2 {
-  font-family: "Saira", serif;
-  font-size: 25px;
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
 }
 
-header nav ul {
-  display: flex;
-  gap: 25px;
+.nav-links a:hover {
+    background-color: #B1C9EF;
+    border-radius: 5px;
 }
 
-header nav ul a {
-  color: var(--hover-color);
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
+.menu-icon {
+    display: none; 
+    font-size: 30px;
+    cursor: pointer;
 }
 
-header nav ul a:hover {
-  background-color: #D4D8DD;
-  color: #1A2D42;
-}
 
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+  background-color: var(--hover-background);
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex; 
+      }
+
+    .menu-icon {
+        display: block; 
+    }
+}
 /* section */
+
 
 section {
   position: relative;
@@ -98,20 +115,24 @@ section .carsour {
 
 .carsour-text {
   flex: 1;
-} 
+}
+
 .carsour-text h2 {
-  font-size: 3rem;
+  font-size: 2rem; 
   color: var(--four-color);
   margin-bottom: 20px;
   line-height: 1.2;
 }
-.carsour-text h2 span{
- color: #dc1d1d;
-}
-.carsour-text p {
-  margin-bottom: 20px;
 
+.carsour-text h2 span {
+  color: #dc1d1d;
 }
+
+.carsour-text p {
+  font-size: 1.2em; 
+  margin-bottom: 20px;
+}
+
 .carsour-image {
   flex: 1;
   display: flex;
@@ -126,9 +147,6 @@ section .carsour {
   border-radius: 15px;
 }
 
-section .carsour p {
-  font-size: 25px;  
-}
 
 .carsour a,
 .carsour .btn {
@@ -139,9 +157,9 @@ section .carsour p {
   border-radius: 10px;
   display: inline-block;
   margin-top: 10px;
-  font-size: 23px; 
-  transition: transform 0.3s, background-color 0.3s, color 0.3s; 
-} 
+  font-size: 1.1em; 
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
 
 section .carsour a:hover,
 .carsour .btn:hover {
@@ -150,8 +168,94 @@ section .carsour a:hover,
   color: var(--hover-background);
 }
 
+@media (max-width: 992px) {
+  section .carsour {
+    padding: 0 50px; 
+    gap: 30px;
+  }
 
-/* App Section Styling */
+  .carsour-text h2 {
+    font-size: 2.5rem; 
+  }
+
+  .carsour-text p {
+    font-size: 1.1em; 
+  }
+
+  .carsour a,
+  .carsour .btn {
+    font-size: 1em; 
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  section .carsour {
+    flex-direction: column; 
+    height: auto; 
+    padding: 60px 30px; 
+    text-align: center; 
+  }
+
+  .carsour-text {
+    flex: none; 
+    width: 100%;
+    margin-bottom: 30px; 
+  }
+
+  .carsour-text h2 {
+    font-size: 2rem; 
+    margin-bottom: 15px;
+  }
+
+  .carsour-text p {
+    font-size: 1em; 
+  }
+
+  .carsour a,
+  .carsour .btn {
+    font-size: 0.9em; 
+    padding: 7px 18px;
+  }
+
+  .carsour-image {
+    flex: none; 
+    width: 100%;
+    justify-content: center; 
+    margin-top: -100px;
+  }
+
+  .carsour-image img {
+    max-width: 80%; 
+  }
+}
+
+@media (max-width: 480px) {
+  section .carsour {
+    padding: 40px 20px; 
+  }
+
+  .carsour-text h2 {
+    font-size: 1.7rem; 
+    margin-bottom: 10px;
+  }
+
+  .carsour-text p {
+    font-size: 0.9em; 
+  }
+
+  .carsour a,
+  .carsour .btn {
+    font-size: 0.8em; 
+    padding: 6px 15px;
+  }
+
+  .carsour-image img {
+    max-width: 90%; 
+  }
+}
+
+/*        App       */
 #app-section {
   padding: 70px 0;
   display: flex;
@@ -185,10 +289,11 @@ section .carsour a:hover,
 
 .Phone-section img {
   width: 292px;
-  max-width: 100%;
+  max-width: 100%; 
   height: auto;
   border-radius: 20px;
 }
+
 .app:hover {
   box-shadow: 0 16px 48px rgba(57, 88, 134, 0.22), 0 2px 16px rgba(138, 174, 224, 0.13);
   transform: translateY(-6px) scale(1.02);
@@ -196,13 +301,13 @@ section .carsour a:hover,
 
 .app h2 {
   color: var(--four-color);
-  font-size: 2rem;
+  font-size: 2rem; 
   margin-bottom: 18px;
 }
 
 .app p {
   color: var(--text-color);
-  font-size: 1.2rem;
+  font-size: 1.2rem; 
   margin-bottom: 28px;
 }
 
@@ -222,7 +327,7 @@ section .carsour a:hover,
 .app .btn {
   background: var(--four-color);
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.1rem; 
   padding: 12px 32px;
   border-radius: 8px;
   margin-top: 9px;
@@ -231,7 +336,6 @@ section .carsour a:hover,
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-
 }
 
 .app .btn:hover {
@@ -240,6 +344,137 @@ section .carsour a:hover,
   transform: scale(1.07);
 }
 
+@media (max-width: 992px) {
+  #app-section {
+    padding: 60px 0; 
+  }
+
+  .app-flex {
+    gap: 20px; 
+    max-width: 90%; 
+  }
+
+  .app {
+    padding: 35px 25px 30px 25px; 
+  }
+
+  .app h2 {
+    font-size: 1.8rem; 
+    margin-bottom: 15px;
+  }
+
+  .app p {
+    font-size: 1.1rem; 
+    margin-bottom: 20px; 
+  }
+
+  .app img {
+    width: 150px; 
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .app .btn {
+    font-size: 1rem; 
+    padding: 10px 28px;
+  }
+
+  .Phone-section img {
+    width: 280px; 
+    max-width:100 ;
+  }
+
+@media (max-width: 768px) {
+  #app-section {
+    padding: 50px 0; 
+  }}
+
+  .app-flex {
+    flex-direction: column;
+    gap: 25px; 
+    max-width: 85%;
+  }
+
+  .app {
+    width: 100%;
+    padding: 30px 20px 25px 20px;
+  }
+
+  .app h2 {
+    font-size: 1.6rem; 
+    margin-bottom: 12px;
+  }
+
+  .app p {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+
+  .app img {
+    width: 120px; 
+    height: 120px;
+    margin-bottom: 18px;
+  }
+
+  .app .btn {
+    font-size: 0.95rem;
+    padding: 9px 24px;
+  }
+
+  .Phone-section {
+    width: 100%; 
+    justify-content: center; 
+    margin-top: 0; 
+  }
+
+  .Phone-section img {
+    width: 70%; 
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  #app-section {
+    padding: 30px 0; 
+  }
+
+  .app-flex {
+    gap: 20px; 
+    max-width: 90%; 
+  }
+
+  .app {
+    padding: 25px 15px 20px 15px;
+  }
+
+  .app h2 {
+    font-size: 1.4rem; 
+    margin-bottom: 10px;
+  }
+
+  .app p {
+    font-size: 0.9rem; 
+    margin-bottom: 15px;
+  }
+
+  .app img {
+    width: 100px; 
+    height: 100px;
+    margin-bottom: 15px;
+  }
+
+  .app .btn {
+    font-size: 0.85rem;
+    padding: 8px 20px;
+  }
+
+  .Phone-section img {
+    width: 90%; 
+    max-width: 290px; 
+  }
+}
+
+/* Logos */
 @keyframes slide {
   from {
     transform: translateX(0);
@@ -375,12 +610,15 @@ section .carsour a:hover,
     gap: 24px;
     padding: 24px 6px;
   }
+
   .about-image {
     justify-content: center;
   }
+
   .about-us {
     padding-left: 0;
   }
+
   .about-image img {
     width: 200px;
   }
@@ -629,6 +867,7 @@ section .carsour a:hover,
   font-weight: 500;
   position: relative;
 }
+
 .footer-col h4::before {
   content: '';
   position: absolute;
@@ -639,13 +878,16 @@ section .carsour a:hover,
   box-sizing: border-box;
   width: 50px;
 }
+
 .footer-col ul {
   list-style: none;
   padding: 0;
 }
+
 .footer-col ul li:not(:last-child) {
   margin-bottom: 10px;
 }
+
 .footer-col ul li a {
   font-size: 16px;
   text-transform: capitalize;
@@ -655,10 +897,12 @@ section .carsour a:hover,
   display: block;
   transition: all 0.3s ease;
 }
+
 .footer-col ul li a:hover {
   color: #ffffff;
   padding-left: 8px;
 }
+
 .footer-col .social-links a {
   display: inline-block;
   height: 40px;
@@ -671,6 +915,7 @@ section .carsour a:hover,
   color: #ffffff;
   transition: all 0.5s ease;
 }
+
 .footer-col .social-links a:hover {
   color: #24262b;
   background-color: #ffffff;
@@ -683,6 +928,7 @@ section .carsour a:hover,
     margin-bottom: 30px;
   }
 }
+
 @media (max-width: 600px) {
   .footer-row {
     flex-direction: column;
@@ -721,4 +967,18 @@ section .carsour a:hover,
   background: var(--hover-background);
   color: var(--hover-color);
   transform: scale(1.1);
+}
+/*  */
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--hover-background); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-color); 
+  border-radius: 10px;
 }
